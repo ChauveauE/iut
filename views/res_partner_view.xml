@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="res_partner_tree_view">
+      <field name="name">res.partner.tree</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <tree string="Modèle">
+          <field name="employee_ref"/>
+          <field name="device_ids"/>
+        </tree>
+      </field>
+    </record>
+    <record id="res_partner_action" model="ir.actions.act_window">
+        <field name="name">Gestion</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.ui.view" id="res_partner_form_view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Partner">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <span class="oe_inline">Partner</span>
+                        </h1>
+                    </div>
+                    <group>
+                        <group colspan="4">
+                          <field name="employee_ref"/>
+                          <field name="device_ids"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="res_partner_form_view_iut">
+        <field name="name">res.partner.form.iut</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+             	 <field name="employee_ref"/>
+            </field>
+        </field>
+    </record>
+  </data>
+</odoo>
