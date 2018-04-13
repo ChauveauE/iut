@@ -10,8 +10,5 @@ class iut_it_model(models.Model):
 
     type_ids = fields.Many2many('iut.it.model.type', string='model_type')
 
-    brand_id = fields.Many2one('iut.it.brand', string='brand',
-    required=True)
-    devices_ids = fields.One2many('iut.it.device', 
-        'model_id',
-        string='device model')
+    brand_id = fields.Many2one('iut.it.brand', string='brand')
+    devices_ids = fields.One2many('iut.it.device', 'model_id', string='device model')
